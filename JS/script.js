@@ -44,21 +44,21 @@ console.log(numEvery);
 const empData =
     [
         {
-            firstName: '',
+            firstName: 'John',
             id: 1,
             age: 12
         }, {
-            firstName: '',
+            firstName: 'Smith',
             id: 2,
             age: 12
         }, {
-            firstName: '',
+            firstName: 'John',
             id: 3,
             age: 12
         },
     ];
 const result = empData.filter((e) => {
-    return e.firstName == ' ';
+    return e.firstName == 'John';
 });
 console.log(result);
 
@@ -99,7 +99,9 @@ const personData = [
     },
 ];
 const voteResult = personData.filter((e) => {
-    return e.age >= 18;
+    if (e.age >= 18) {
+        console.log(e.firstName);
+    }
 });
 console.log(voteResult);
 
@@ -111,14 +113,13 @@ console.log(arrReduce);
 // 8. check element is odd or even in an array [90, 89, 56, 45]
 const evenOdd = [90, 89, 56, 45];
 const evenResult = evenOdd.filter((e) => {
-    return e % 2 == 0;
+    if (e % 2 == 0) {
+        console.log(e + " is even")
+    }
+    else (
+        console.log(e + " is odd")
+    )
 });
-console.log(evenResult);
-const oddResult = evenOdd.filter((e) => {
-    return e % 2 != 0;
-});
-console.log(oddResult);
-
 
 // 9. sum of all the salaries and display final sum value
 const empSalary = [
@@ -129,12 +130,14 @@ const empSalary = [
         salary: 90000
     }
 ];
-const total = empSalary[0].salary + empSalary[1].salary
-console.log(total);
+const total = [empSalary[0].salary, empSalary[1].salary];
+const s = total.reduce((sum, sal) => sum + sal);
+console.log(s);
+
 
 // 10. concat all array elements ['red', 'pink', 'orange', 'red']: 'redpinkorangered'
-const stringArr=['red', 'pink', 'orange', 'red'];
-const strReduce=stringArr.reduce((concat,str)=>concat+str);
+const stringArr = ['red', 'pink', 'orange', 'red'];
+const strReduce = stringArr.reduce((concat, str) => concat + str);
 console.log(strReduce);
 
 //task
@@ -161,17 +164,17 @@ firstCar.specialFeature(200000, 50)
 
 //create a class Book: type_of_book()
 //no. of pages, type of pages, author
-class Book{
-    constructor(noPages,author,price){
-        this.noPages=noPages;
-        this.author=author;
-        this.price=price
+class Book {
+    constructor(noPages, author, price) {
+        this.noPages = noPages;
+        this.author = author;
+        this.price = price
     }
-    type_of_book(bookType){
+    type_of_book(bookType) {
         console.log(bookType);
     }
 }
-const bookOne=new Book(200,'Palmer',225);
+const bookOne = new Book(200, 'Palmer', 225);
 console.log(bookOne);
 bookOne.type_of_book("Historical fiction")
 
